@@ -1,0 +1,28 @@
+# Built artifacts
+*.vsix
+node_modules/
+dist/
+out/
+
+# Local profile files — these contain API tokens, never commit
+.claude/
+profiles/glm.json
+profiles/claude.json
+!profiles/*.example
+
+# Editor & OS junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build temp
+*.zip
+build/

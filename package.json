@@ -1,0 +1,78 @@
+{
+  "name": "glm-toggle",
+  "displayName": "GLM Toggle",
+  "description": "Toggle between GLM-5.1 (z.ai) and native Claude for Claude Code",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/system-conf/claude-code-glm-toggle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/system-conf/claude-code-glm-toggle/issues"
+  },
+  "homepage": "https://github.com/system-conf/claude-code-glm-toggle#readme",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "glm",
+    "glm-5.1",
+    "z.ai",
+    "anthropic",
+    "ai",
+    "toggle"
+  ],
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "icon": "icon.svg",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "glmToggleContainer",
+          "title": "GLM Toggle",
+          "icon": "./icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "glmToggleContainer": [
+        {
+          "id": "glmToggleView",
+          "name": "Claude Code Mode"
+        }
+      ]
+    },
+    "commands": [
+      { "command": "glmToggle.toggle", "title": "GLM Toggle: Switch Mode" },
+      { "command": "glmToggle.on", "title": "GLM Toggle: Enable GLM-5.1" },
+      { "command": "glmToggle.off", "title": "GLM Toggle: Switch to Native Claude" },
+      { "command": "glmToggle.status", "title": "GLM Toggle: Show Current Mode" },
+      { "command": "glmToggle.refresh", "title": "GLM Toggle: Refresh", "icon": "$(refresh)" }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "glmToggle.refresh",
+          "when": "view == glmToggleView",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "GLM Toggle",
+      "properties": {
+        "glmToggle.claudeDir": {
+          "type": "string",
+          "default": "",
+          "description": "Path to .claude directory. Leave empty to use ~/.claude."
+        }
+      }
+    }
+  }
+}
